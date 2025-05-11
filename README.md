@@ -14,9 +14,19 @@ This project implements diffusion-based generative models for image synthesis. I
   - Class-conditional image generation
   - Image colorization
   - Image inpainting/imputation
-- **Interactive Dashboard**: Built with Streamlit for easy model interaction
+- **Interactive Dashboard**: Built with Streamlit for easy model interaction, accessible via a simple CLI command.
 
 ## Installation
+
+### Using pip (Recommended)
+
+You can install the package directly from PyPI:
+
+```bash
+pip install diffusion-image-gen
+```
+
+### From Source (for development)
 
 Clone the repository:
 
@@ -31,63 +41,43 @@ pip install -e .
 ### Basic Generation
 
 ```python
-from diffusion_image_gen.base import GenerativeModel
+from diffusion_image_gen import GenerativeModel
 
 # Load a pre-trained model
-model = GenerativeModel.load("path/to/model.pt")
+# Note: You will need to have a model file (.pt or .pth) available.
+# model = GenerativeModel.load("path/to/your/model.pth")
 
 # Generate images
-images = model.generate(num_images=4, n_steps=500, seed=42)
+# images = model.generate(num_images=4, n_steps=500, seed=42)
 ```
 
 ### Colorization
 
 ```python
 # Colorize a grayscale image
-colorized = model.colorize(grayscale_image, n_steps=500)
+# colorized = model.colorize(grayscale_image, n_steps=500)
 ```
 
 ### Image Inpainting
 
 ```python
 # Perform inpainting with a mask
-inpainted = model.imputation(image, mask, n_steps=500)
+# inpainted = model.imputation(image, mask, n_steps=500)
 ```
+**Note**: The usage examples above assume you have a trained model file. The package provides the framework, but pre-trained models are not included in the base installation.
 
 ## Interactive Dashboard
 
-Run the dashboard to interact with your models:
+Run the dashboard to interact with your models using the command line:
 
 ```bash
-streamlit run dashboard.py
+diffusion-image-gen dashboard
 ```
+This will start the Streamlit web application.
 
 ## Documentation
 
-The project includes automatically generated documentation. To view it locally:
-
-```bash
-# Build the documentation
-mkdocs build
-
-# Serve the documentation locally
-mkdocs serve
-```
-
-A more comprehensive version of the documentation is available at [https://deepwiki.com/HectorTablero/image-gen](https://deepwiki.com/HectorTablero/image-gen)
-
-## Examples
-
-Check the `examples/` directory for Jupyter notebooks demonstrating different aspects of the framework:
-
-- `getting_started.ipynb`: Basic introduction to the framework
-- `diffusers.ipynb`: Working with different diffusion processes
-- `noise_schedulers.ipynb`: Exploring various noise schedules
-- `samplers.ipynb`: Comparing different sampling methods
-- `colorization.ipynb`: Image colorization examples
-- `imputation.ipynb`: Image inpainting examples
-- `class_conditioning.ipynb`: Class-conditional generation
-- `evaluation.ipynb`: Evaluating model performance
+A comprehensive version of the documentation is available at [https://deepwiki.com/HectorTablero/image-gen](https://deepwiki.com/HectorTablero/image-gen)
 
 ## License
 
