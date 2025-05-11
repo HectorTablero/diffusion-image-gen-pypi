@@ -1,6 +1,6 @@
 [project]
 name = "diffusion-image-gen"
-version = "0.4.0"
+version = "0.4.1"
 authors = [
   { name="Héctor Tablero Díaz", email="hector.tablerodiaz@gmail.com" },
   { name="Álvaro Martínez Gamo", email="alva00003@gmail.com" },
